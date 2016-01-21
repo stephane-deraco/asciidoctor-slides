@@ -1,0 +1,8 @@
+[submodule "dzslides"]
+	path = dzslides
+	url = https://github.com/astefanutti/dzslides.git
+	branch = dev
+[submodule "asciidoctor-backends"]
+	path = asciidoctor-backends
+	url = https://github.com/asciidoctor/asciidoctor-backends.git
+	branch = master
