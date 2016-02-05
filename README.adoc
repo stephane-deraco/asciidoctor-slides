@@ -1,0 +1,9 @@
+Clone the repository, and initialize submodules: 
+
+ git submodule init
+ git submodule update
+
+sudo apt install bundler graphviz
+
+bundle install
+

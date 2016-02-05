@@ -1,0 +1,383 @@
+= Example slides
+By you!
+:copyright: CC BY-NC-SA 4.0
+:backend: dzslides
+:sectids!:
+:experimental:
+:toc2:
+:sectanchors:
+:idprefix:
+:idseparator: -
+:icons: font
+:source-language: adoc
+:source-highlighter: highlightjs
+:macros-on: subs="macros"
+:caption-off: caption=""
+:title-off: title="", caption=""
+:dzslides-aspect: 16-9
+:imagesdir: images
+:next-label: pass:quotes,attributes[*Next* [icon:caret-right[]]
+:dzslides-style: asciidoctor
+:dzslides-highlight: github
+:dzslides-transition: fade
+:dzslides-fonts: family=Neuton:400,700,800,400italic|Cedarville+Cursive
+:hide-uri-scheme:
+:includegifs:
+:stylesheet: custom.css
+
+[.topic]
+== New slide
+
+Create a new slide with `.topic`:
+
+[source]
+----
+[.topic]
+== Slide name
+----
+
+[.topic.source]
+== New slide with small title
+
+Create a new slide with small title with `.topic.source`
+
+[source]
+----
+[.topic.source]
+== Small title in upper right
+----
+
+
+[.topic]
+== Use Font Awesome Icons
+
+[source]
+----
+icon:external-link-square
+----
+
+icon:external-link-square[] See other icons at http://fortawesome.github.io/Font-Awesome/icons/
+
+[.topic]
+== Lists with details
+
+[source]
+----
+* item 1
+  [detail]#details of item 1#
+* item 2
+  [detail]#details of item 2#
+----
+
+* item 1
+  [detail]#details of item 1#
+* item 2
+  [detail]#details of item 2#
+
+[.topic.intro]
+== Transition slide with `.topic.intro`
+
+[.topic]
+== Sizes
+
+[.smaller]
+--
+.Smaller text
+[source]
+----
+[.smaller]
+----
+--
+
+[.smallest]
+--
+.Smallest text
+[source]
+----
+[.smallest]
+----
+--
+
+[.fartoosmall]
+--
+.Far too small text
+[source]
+----
+[.fartoosmall]
+----
+--
+
+
+[.topic]
+== Center
+
+[source.middle]
+--
+[source.middle]
+This is centered vertically.
+--
+
+
+[.topic]
+== Incremental display with `.incremental`
+
+[.pull-left.incremental.small]
+* On left, you just need
+* to add `.pull-left`
+* like this:
++
+[source]
+----
+[.pull-left.incremental]
+* one
+* two
+----
+
+[.pull-right.incremental.small]
+* Idem on right
+* with `.pull-right`
++
+[source]
+----
+[.pull-right.incremental]
+* three
+* four
+----
+
+[.topic]
+== Image position
+
+Example:
+
+[source]
+----
+image::wikimedia.png[role="pull-right", width="300"]
+----
+
+image::wikimedia.png[role="pull-right", width="100"]
+
+[.fartoosmall]
+--
+Wikimedia icon licensed under the Creative Commons Attribution-Share Alike 3.0 Unported license.
+Source: https://commons.wikimedia.org/wiki/File:ThreeCircles.svg
+--
+
+
+[.topic]
+== Diagrams with Ditaa
+
+Use `[ditaa]`
+
+[.smallest]
+--
+[source]
+----
+[ditaa]
+....
+/--------------\  Link  +------------+
+| Round black  |------->| File green |
+| cBLK         |        | {d} cGRE   |
+\--------------/        +------------+
+....
+----
+--
+
+[ditaa]
+....
+/--------------\  Link  +------------+
+| Round black  |------->| File green |
+| cBLK         |        | {d} cGRE   |
+\--------------/        +------------+
+....
+
+
+[.topic]
+== UML Diagrams
+
+With `[plantuml]` (examples from http://plantuml.com/):
+
+[.smallest.pull-left]
+--
+[source]
+----
+[plantuml, diagram-classes, png]     
+....
+class BlockProcessor
+class DiagramBlock
+class DitaaBlock
+class PlantUmlBlock
+
+BlockProcessor <|-- DiagramBlock
+DiagramBlock <|-- DitaaBlock
+DiagramBlock <|-- PlantUmlBlock
+....
+----
+--
+
+[plantuml, diagram-classes, png]     
+....
+class BlockProcessor
+class DiagramBlock
+class DitaaBlock
+class PlantUmlBlock
+
+BlockProcessor <|-- DiagramBlock
+DiagramBlock <|-- DitaaBlock
+DiagramBlock <|-- PlantUmlBlock
+....
+
+[.topic]
+== Another Plantuml diagram
+
+[.fartoosmall.pull-left]
+--
+[source]
+----
+[plantuml, "lifecycle-PAT-PIT-ABD-ADV-BS", "svg"]
+....
+@startuml
+
+skinparam shadowing false
+skinparam backgroundColor transparent
+skinparam defaultFontName Consolas
+
+skinparam activity {
+  FontSize 20
+  FontName Consolas
+  FontColor #337788
+  ArrowColor #888888
+  BorderColor #337788
+  BackgroundColor #white
+  FontColor<< Internal >> #888888
+  BorderColor<< Internal >> #888888
+  BackgroundColor<< Internal >> #white
+  FontColor<< Once >> #BB3322
+  BorderColor<< Once >> #BB3322
+  BackgroundColor<< Once >> #white
+}
+
+(*) -right-> "Deployment\nStart" << Internal >>
+-down-> "Before\nBean\nDiscovery" << Once >>
+-left-> "Scan\nArchive" << Internal >>
+-down-> "After\nType\nDiscovery" << Once >>
+-right-> "Application\nRunning" << Internal >>
+-down-> "Undeploy\nApplication" << Internal >>
+-left-> (*)
+
+@enduml
+....
+----
+--
+
+[plantuml, "lifecycle-PAT-PIT-ABD-ADV-BS", "svg" height="85%", width="60%"]
+....
+@startuml
+
+skinparam shadowing false
+skinparam backgroundColor transparent
+skinparam defaultFontName Consolas
+
+skinparam activity {
+  FontSize 20
+  FontName Consolas
+  FontColor #337788
+  ArrowColor #888888
+  BorderColor #337788
+  BackgroundColor #white
+
+  FontColor<< Internal >> #888888
+  BorderColor<< Internal >> #888888
+  BackgroundColor<< Internal >> #white
+
+  FontColor<< Once >> #BB3322
+  BorderColor<< Once >> #BB3322
+  BackgroundColor<< Once >> #white
+}
+
+(*) -right-> "Deployment\nStart" << Internal >>
+-down-> "Before\nBean\nDiscovery" << Once >>
+-left-> "Scan\nArchive" << Internal >>
+-down-> "After\nType\nDiscovery" << Once >>
+-right-> "Application\nRunning" << Internal >>
+-down-> "Undeploy\nApplication" << Internal >>
+-left-> (*)
+
+@enduml
+....
+
+
+[.topic]
+== Display source code
+
+[source]
+--
+[source,subs="verbatim,quotes", role="smaller"]
+----
+public static void main(String[] args) {
+    System.out.println("Hello *bold*"); // <1>
+}
+----
+<1> _bold_ is bold
+--
+
+[source,subs="verbatim,quotes", role="smaller"]
+----
+public static void main(String[] args) {
+    System.out.println("Hello *bold*"); // <1>
+}
+----
+<1> _bold_ is bold
+
+
+[.topic]
+== Highlight source code
+
+[source]
+--
+[source,subs="verbatim,quotes", role="smaller"]
+----
+public static void main(String[] args) {
+    System.[highlight]#out#.println("Hello bold");
+}
+----
+--
+
+[source,subs="verbatim,quotes", role="smaller"]
+----
+public static void main(String[] args) {
+    System.[highlight]#out#.println("Hello bold");
+}
+----
+
+
+[.topic.recap]
+== _Recap_ slide
+
+It may be useful to split text with `+` +
+  so that there is no overlap.
+
+Use `.recap` role like :
+
+[source]
+----
+[.topic.recap]
+== My recap slide
+----
+
+
+[.topic]
+== Quotes
+
+[quote, Isaac Newton, Letter from Isaac Newton to Robert Hooke (1676)]
+____
+If I have seen further it is by
+standing on the shoulders of giants.
+____
+
+
+[.topic.ending, hrole="name"]
+== Last slide with [fartoosmall]#`[.topic.ending, hrole="name"]` and `.footer`#
+
+[.footer]
+icon:twitter[] @stephane_deraco
+
